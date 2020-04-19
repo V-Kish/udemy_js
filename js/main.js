@@ -1,6 +1,6 @@
 //2) В файле скрипта создать 2 переменные (money и time), которые будут получать данные от пользователя:
-let money = prompt('Ваш бюджет на месяц?');
-let time =  prompt('YYYY-MM-DD');
+let money = +prompt('Ваш бюджет на месяц?');
+let time =  +prompt('YYYY-MM-DD');
 //
 
 //3) Создать объект appData, который будет содержать такие данные:
@@ -13,15 +13,70 @@ let  appData = {
     savings:false
 };
 //
-//4) Задать пользователю по 2 раза вопросы:
-let answerOne = prompt('Введите обязательную статью расходов в этом месяце');
-let answerTwo = prompt('Во сколько обойдется?');
-//
-appData.expenses[answerOne] = answerTwo;
+
+    // appData.expenses[a1] = a2;
+    // appData.expenses[a3] = a4;
 // 5) Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней, использовать alert)
 alert('Ваш бюджет на 1 день: '+ Math.round(money / 30 ))
 //
-console.log(appData);
+// for (let i = 0; i < 2;){
+//     let a = prompt('Введите обязательную статью расходов в этом месяце'),
+//         b = prompt('Во сколько обойдется?');
+//     if ((typeof (a)) === 'string' && (typeof (a)) != null &&  (typeof (b)) != null && a !== '' && b !== '' && a.length < 50 && b.length < 50){
+//         appData.expenses[a] = b;
+//         i++;
+//         console.log('Success')
+//     }else {
+//         // Вернутся в цикл заново
+//
+//     }
+//
+// }
+
+////////////// 1) Цикл while
+// let i = 0;
+//  while(i < 2){
+//      let a = prompt('Введите обязательную статью расходов в этом месяце'),
+//          b = prompt('Во сколько обойдется?');
+//      if ((typeof (a)) === 'string' && (typeof (a)) != null &&  (typeof (b)) != null && a !== '' && b !== '' && a.length < 50 && b.length < 50){
+//          appData.expenses[a] = b;
+//          i++;
+//          console.log('Success')
+//      }else {
+//          // Вернутся в цикл заново
+//
+//      }
+//  }
+///////// Цикл do while
+// let i = 0;
+//  do {
+//      let a = prompt('Введите обязательную статью расходов в этом месяце'),
+//          b = prompt('Во сколько обойдется?');
+//      if ((typeof (a)) === 'string' && (typeof (a)) != null &&  (typeof (b)) != null && a !== '' && b !== '' && a.length < 50 && b.length < 50){
+//          appData.expenses[a] = b;
+//          i++;
+//          console.log('Success')
+//      }else {
+//          // Вернутся в цикл заново
+//
+//      }
+//  }while (i < 2);
+
+
+
+
+appData.moneyPerDay = (appData.budget / 30);
+
+alert('Ежедневный бюджет: ' + appData.moneyPerDay);
+if (appData.moneyPerDay < 100){
+    console.log('Минимальный уровень достака');
+}else if (appData.moneyPerDay >100 && appData.moneyPerDay < 2000) {
+    console.log('Средний уровень достака');
+}else  if (appData.moneyPerDay > 2000){
+    console.log('Высокий уровень достака');
+}else {
+    console.log('Ошибка!');
+}
 
 //Вопросы к этому заданию
 //1) Сколько типов данных существует в JS? //
